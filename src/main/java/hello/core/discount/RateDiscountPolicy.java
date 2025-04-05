@@ -1,9 +1,15 @@
 package hello.core.discount;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Grade;
 import hello.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
+@Component
+@MainDiscountPolicy//@Qualifier("mainDiscountPolicy")문자로 되어있으면 컴파일 타임 에러를 잡을 수 없음
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;
